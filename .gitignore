@@ -3,4 +3,5 @@
 log/*.log
 tmp/**
 node_modules/
+demo/js/*
 .sass-cache
