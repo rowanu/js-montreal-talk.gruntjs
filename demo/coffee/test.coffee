@@ -1,1 +1,1 @@
-console.log "OHAI"
+console.log "OHAI KTHX"
