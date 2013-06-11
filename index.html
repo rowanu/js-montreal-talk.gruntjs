@@ -120,7 +120,8 @@
               Don't re-invent the wheel
             </p>
             <p class="fragment">
-              Seriously. Stop it
+              Seriously. Stop it.<br/>
+              Leave that yak alone.
             </p>
             <aside class="notes">
               Fantastic range of plugins for most common tasks.
@@ -186,28 +187,34 @@
               <li>cd demo</li>
               <li>npm init</li>
               <li>npm install grunt --save-dev</li>
+              <li>mkdir src</li>
             </ul>
+            <h4>Gruntfile</h4>
             <pre><code data-trim>
-module.exports = (grunt) ->
-  grunt.initConfig
-    pkg: grunt.file.readJSON('package.json')
+module.exports = function(grunt) {
+  grunt.initConfig({
+    pkg: grunt.file.readJSON("package.json"),
+    ...
+  })
+}
             </code></pre>
           </section>
           <section>
-            <h3>CoffeeScript</h3>
+            <h3>JSLint</h3>
             <ul>
-              <li>mkdir coffee js</li>
-              <li>npm install grunt-contrib-coffee --save-dev</li>
-              <li>npm install grunt-contrib-watch --save-dev</li>
+              <li>npm install grunt-jslint --save-dev</li>
             </ul>
+            <h4>Gruntfile</h4>
             <pre><code data-trim>
-coffee:
-  compile:
-    expand: true
-    cwd: "coffee/"
-    src: ["**/*.coffee"]
-    dest: "js/"
-    ext: ".js"
+jslint: {
+  files: ["src/**/*.js"],
+  directives: {
+    devel: true
+  },
+  options: {
+    failOnError: false
+  }
+}
             </code></pre>
           </section>
           <section>
@@ -215,16 +222,24 @@ coffee:
             <ul>
               <li>npm install grunt-contrib-watch --save-dev</li>
             </ul>
+            <h4>Gruntfile</h4>
             <pre><code data-trim>
-watch:
-  coffee:
-    files: ["coffee/**/*.coffee"]
-    tasks: ["coffee"]
-    options:
+watch: {
+  jslint: {
+    files: ["src/**/*.js"],
+    tasks: ["jslint"],
+    options: {
       interrupt: true
+    }
+  }
+}
             </code></pre>
           </section>
         </section>
+
+				<section>
+					<h2>In action</h2>
+				</section>
 
 				<section>
 					<h1>FIN</h1>

@@ -14,7 +14,7 @@ module.exports = (grunt) ->
         failOnError: false
 
     watch:
-      coffee:
+      jslint:
         files: [ "src/**/*.js" ]
         tasks: ["jslint"]
         options:
