@@ -32,3 +32,4 @@ module.exports = (grunt) ->
 
   # Custom tasks
   grunt.registerTask "default", ["watch"]
+  grunt.registerTask "build", ["jslint", "uglify"]

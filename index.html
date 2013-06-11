@@ -241,6 +241,22 @@ watch: {
 }
             </code></pre>
           </section>
+          <section>
+            <h3>Uglify</h3>
+            <ul>
+              <li>npm install grunt-contrib-uglify --save-dev</li>
+            </ul>
+            <h4>Gruntfile</h4>
+            <pre><code data-trim>
+uglify: {
+  build: {
+    files: {
+      "js/index.min.js": ["src/index.js"]
+    }
+  }
+}
+            </code></pre>
+          </section>
         </section>
 
 				<section>
