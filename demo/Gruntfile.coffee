@@ -10,8 +10,6 @@ module.exports = (grunt) ->
       files: [ "src/**/*.js" ]
       directives:
         devel: true
-      options:
-        failOnError: false
 
     watch:
       jslint:
