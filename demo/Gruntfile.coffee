@@ -20,9 +20,15 @@ module.exports = (grunt) ->
         options:
           interrupt: true
 
+    uglify:
+      build:
+        files:
+          "js/index.min.js": [ "src/index.js" ]
+
   # Load plugins
   grunt.loadNpmTasks "grunt-jslint"
   grunt.loadNpmTasks "grunt-contrib-watch"
+  grunt.loadNpmTasks "grunt-contrib-uglify"
 
   # Custom tasks
   grunt.registerTask "default", ["watch"]
