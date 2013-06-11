@@ -3,27 +3,26 @@ module.exports = (grunt) ->
 
   # Project configuration
   grunt.initConfig
-    pkg: grunt.file.readJSON('package.json')
+    pkg: grunt.file.readJSON("package.json")
 
     # Task configuration
-    coffee:
-      compile:
-        expand: true
-        cwd: "coffee/"
-        src: ["**/*.coffee"]
-        dest: "js/"
-        ext: ".js"
+    jslint:
+      files: [ "src/**/*.js" ]
+      directives:
+        devel: true
+      options:
+        failOnError: false
 
     watch:
       coffee:
-        files: ["coffee/**/*.coffee"]
-        tasks: ["coffee"]
+        files: [ "src/**/*.js" ]
+        tasks: ["jslint"]
         options:
           interrupt: true
 
   # Load plugins
-  grunt.loadNpmTasks 'grunt-contrib-coffee'
-  grunt.loadNpmTasks 'grunt-contrib-watch'
+  grunt.loadNpmTasks "grunt-jslint"
+  grunt.loadNpmTasks "grunt-contrib-watch"
 
   # Custom tasks
-  grunt.registerTask 'default', ['watch']
+  grunt.registerTask "default", ["watch"]
